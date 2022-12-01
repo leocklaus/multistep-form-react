@@ -6,7 +6,7 @@ import ReviewForm from './components/ReviewForm'
 import ConcludeForm from './components/ConcludeForm'
 
 //hooks
-import useStep from '../hooks/useStep'
+import useStep from './hooks/useStep'
 
 function App() {
 
