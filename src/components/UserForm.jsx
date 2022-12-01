@@ -13,6 +13,8 @@ function UserForm() {
                 id="name"
                 placeholder="Digite seu nome" 
             />
+        </div>
+        <div className={styles.form_control}>
             <label htmlFor="name">Email:</label>
             <input 
                 type="email" 

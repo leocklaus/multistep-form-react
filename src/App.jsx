@@ -16,7 +16,7 @@ function App() {
     <ConcludeForm />
   ]
 
-  const {currentStep, currentForm} = useStep(formComponents)
+  const {currentStep, currentForm, changeStep, isFirstStep, isLastStep} = useStep(formComponents)
 
   return (
     <div className="App">
@@ -25,11 +25,22 @@ function App() {
         <p>Ficamos felizes com sua compra. Utilize o formulário abaixo para avaliar o produto.</p>
       </header>
       <main>
-        <form>
+        <form onSubmit={(e)=>{changeStep(currentStep + 1, e)}}>
           {currentForm}
-          <button type='button'>Voltar</button>
-          <button type='submit'>Próximo</button>
-
+          {!isFirstStep && (
+            <button 
+              type='button' 
+              onClick={()=>{changeStep(currentStep - 1)}}>
+                <span>Voltar</span>
+            </button>
+          )}
+          <button type='submit'>
+            {isLastStep? (
+              <span>Enviar</span>
+            ):(
+              <span>Próximo</span>
+            )}
+          </button>
         </form>
       </main>
     </div>
